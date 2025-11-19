@@ -1,0 +1,77 @@
+/* ------------------------------------ */
+/* 1. Header Container */
+/* ------------------------------------ */
+.main-header {
+    /* Use Flexbox to separate the logo and the navigation group */
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; /* Vertical alignment */
+
+    /* Positioning and Sizing */
+    width: 100%;
+    position: absolute; 
+    top: 0;
+    left: 0;
+    z-index: 10; 
+    
+    /* CRITICAL FIX: Ensures padding is included *inside* the 100% width */
+    box-sizing: border-box; 
+    
+    /* Spacing */
+    padding: 20px 50px; 
+    
+    background-color: transparent; 
+}
+
+/* ... rest of the styles remain the same ... */
+
+/* ------------------------------------ */
+/* 2. Logo Styling */
+/* ------------------------------------ */
+.header-logo {
+    font-weight: 500; 
+    font-size: 24px;
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+
+/* ------------------------------------ */
+/* 3. Navigation Group (Links + Button) */
+/* ------------------------------------ */
+.nav-group {
+    /* Flexbox to keep the internal elements (links, button) aligned */
+    display: flex;
+    align-items: center; 
+    gap: 35px; /* Space between Jobs, About, and Sign In */
+}
+
+.nav-link { 
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+    transition: color 0.2s; 
+}
+
+.nav-link:hover {
+    color: #333; 
+}
+
+/* ------------------------------------ */
+/* 4. Sign In Button */
+/* ------------------------------------ */
+.sign-in-btn {
+    background-color: black;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.sign-in-btn:hover {
+    background-color: #333;
+}

@@ -1,0 +1,129 @@
+/* Login.css */
+
+/* --- General Page / Container Styling --- */
+.login-page-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    min-height: 100vh; /* Take full viewport height */
+    background-color: #ffffff; /* White background for the left side */
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    color: #333;
+    overflow: hidden; /* Prevent anything from spilling out */
+    min-height: 100vh; /* Ensures it covers the full viewport height */
+  }
+  
+  .login-content-area {
+    display: flex;
+    width: 100%;
+    height: 100vh; /* **CRITICAL: Ensure this container takes full height** */
+    justify-content: center; /* **CHANGE THIS** to center the strip */
+    align-items: center;
+}
+  
+  /* --- Green Strip Styling --- */
+  .login-strip {
+    background-color: #A9C391; /* The specific green color from the image */
+    width: 350px; /* Adjust width as needed for the strip */
+    height: 100%; /* Full height of its parent */
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally within the strip */
+    justify-content: center; /* Center items vertically within the strip */
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  /* --- "Sign in." Title Styling --- */
+  .login-title {
+    font-size: 60px;
+    font-weight: bold;
+    color: white; /* White text for the title */
+    margin-bottom: 0px; /* Space below the title */
+    align-self: center; /* **CHANGE THIS** to center the title */
+    margin-left: 10px; /* **CHANGE THIS** to remove the left margin */
+    text-align: center; /* **CHANGE THIS** to center the text content */
+  }
+  
+  /* --- Login Card Styling --- */
+  .login-card {
+    background-color: #ffffff; /* White background for the card */
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2); /* Increased blur, spread, and opacity */
+    padding: 20px;
+    width: 350px; /* Fixed width for the card */
+    box-sizing: border-box;
+    margin-top: 10px; /* Space between title and card */
+    /* Position the card slightly off-center to the left, as per the image */
+    transform: translateX(75px); /*Adjust to move it left relative to its container */
+  }
+  
+  /* --- Form Element Styling --- */
+  .login-card form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .login-card label {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #555;
+  }
+  
+  .login-card input[type="email"],
+  .login-card input[type="password"] {
+    background-color: #F0F0F0; /* Light gray background for inputs */
+    border: none;
+    border-radius: 8px;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .login-card input::placeholder {
+    color: #A0A0A0;
+  }
+  
+  .forgot-password-link {
+    font-size: 13px;
+    color: #A0A0A0;
+    text-decoration: none;
+    text-align: right;
+    margin-top: -10px; /* Adjust to place it above the button */
+    margin-bottom: 20px;
+    display: block; /* Allows text-align to work */
+  }
+  
+  .forgot-password-link:hover {
+    text-decoration: underline;
+  }
+  
+  .sign-in-button {
+    background-color: #2F4F22; /* Darker green for the button */
+    color: white;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .sign-in-button:hover {
+    background-color: #3B6B2B; /* Slightly lighter green on hover */
+  }
+  
+  /* --- "Create an account" Link Styling --- */
+  .create-account-link {
+    color: white; /* White text for this link */
+    text-decoration: none;
+    font-size: 15px;
+    margin-top: 30px; /* Space above the link */
+  }
+  
+  .create-account-link:hover {
+    text-decoration: underline;
+  }

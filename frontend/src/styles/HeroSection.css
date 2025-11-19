@@ -1,0 +1,75 @@
+/* --- Container Setup --- */
+.hero-container {
+    /* Establishes the boundary and positioning context for absolute children */
+    position: relative; 
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    min-height: 500px;
+    overflow: hidden; 
+    background-color: white; 
+  }
+  
+  /* --- Background Layer Styling (Z-index 1) --- */
+  .mesh-background {
+    position: absolute;
+    top: 0;
+    left: -40;
+    width: 100%;
+    height: 100%;
+    z-index: 1; 
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .mesh-background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+  }
+  
+  /* --- Main Content Styling (Z-index 2) --- */
+  .hero-content {
+    /* Absolute Positioning for precise vertical and horizontal placement */
+    position: absolute; 
+
+    /* Controls how high the content sits from the top */
+    top: 15vh; 
+
+    /* Horizontal positioning */
+    left: 90px; 
+
+    max-width: 500px; 
+    
+    z-index: 2;
+  }
+
+  /* --- Content Typography --- */
+  .greeting {
+    font-size: 50px;
+    font-weight: 800; 
+    color: #000; 
+    margin-bottom: 5px;
+    line-height: 1.1;
+  }
+  
+  .headline {
+    font-size: 18px;
+    font-weight: 400; 
+    color: #333;
+    margin-bottom: 30px;
+  }
+  
+  .browse-btn {
+    background-color: black;
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    position: relative;
+    overflow: hidden;
+  }

@@ -1,16 +1,23 @@
-import { useEffect, useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Header from "./components/Header";
+import HeroSection from "./HeroSection";
+import Login from "./Login";
+import "./styles/App.css";
 
 function App() {
-  const [message, setMessage] = useState("Loading...");
+  return (
+    <Router>
+      <Header />
 
-  useEffect(() => {
-    fetch("http://localhost:8080/hello") // direct URL for testing
-      .then((res) => res.json())
-      .then((data) => setMessage(data.message))
-      .catch(() => setMessage("Failed to load"));
-  }, []);
+      <Routes>
+        {/* Home Page */}
+        <Route path="/" element={<HeroSection />} />
 
-  return <h1>{message}</h1>;
+        {/* Login Page */}
+        <Route path="/login" element={<Login />} />
+      </Routes>
+    </Router>
+  );
 }
 
 export default App;
