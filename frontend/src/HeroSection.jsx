@@ -1,22 +1,22 @@
-import React from 'react';
-// Assume your mesh image is located in the same directory for simplicity
-import MeshImage from './assets/mesh-background.png'; 
+import React, { useEffect, useState } from 'react';
+import MeshImage from './assets/mesh-background.png';
 import './styles/HeroSection.css';
 
 function HeroSection() {
+  const [user, setUser] = useState({ name: "Guest" });
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem("userInfo");
+    if (storedUser) setUser(JSON.parse(storedUser));
+  }, []);
+
   return (
     <div className="hero-container">
-      {/* 1. The Background Layer (Mesh PNG) */}
       <div className="mesh-background">
-        <img 
-          src={MeshImage} 
-          alt="Abstract network mesh background" 
-        />
+        <img src={MeshImage} alt="Abstract network mesh background" />
       </div>
-
-      {/* 2. The Main Content Layer - Positioned absolutely via CSS */}
       <div className="hero-content">
-        <p className="greeting">Welcome!</p>
+        <p className="greeting">Welcome {user.name}!</p>
         <h1 className="headline">Browse the latest jobs or add your own!</h1>
         <button className="browse-btn">Browse Jobs</button>
       </div>

@@ -12,7 +12,7 @@
     position: absolute; 
     top: 0;
     left: 0;
-    z-index: 10; 
+    z-index: 99; 
     
     /* CRITICAL FIX: Ensures padding is included *inside* the 100% width */
     box-sizing: border-box; 
@@ -21,6 +21,7 @@
     padding: 20px 50px; 
     
     background-color: transparent; 
+
 }
 
 /* ... rest of the styles remain the same ... */

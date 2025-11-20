@@ -4,12 +4,47 @@ services:
     ports:
       - "8080:8080"
     container_name: go-backend
+    depends_on:
+      - postgres
+    environment:
+      DB_HOST: postgres
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      DB_NAME: hitchship
+      DB_PORT: 5432
 
   frontend:
     build: ./frontend
     ports:
       - "3000:80"
+    container_name: react-frontend
     depends_on:
       - backend
 
-  
+  postgres:
+    image: postgres:16
+    container_name: hitchship-db
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: hitchship
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: hitchship-pgadmin
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "5050:80"
+    depends_on:
+      - postgres
+
+volumes:
+  postgres-data:

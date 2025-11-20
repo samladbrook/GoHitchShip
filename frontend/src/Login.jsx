@@ -1,25 +1,53 @@
-// Login.jsx
-import React from 'react';
-import './Login.css'; // Import the CSS file for styling
+import React, { useState } from 'react';
+import { Link } from "react-router-dom";
+import './Login.css';
 
 function Login() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault(); // prevent default GET request
+
+    try {
+      const res = await fetch("http://localhost:8080/api/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        // save JWT to localStorage (or cookies)
+        localStorage.setItem("token", data.token);       // JWT for API authentication
+        localStorage.setItem("userInfo", JSON.stringify(data.user)); // store all info except password
+        window.location.href = "/";            // redirect
+      } else {
+        alert("Error: " + data.error);
+      }
+    } catch (err) {
+      console.error(err);
+      alert("Network error");
+    }
+  };
+
   return (
     <div className="login-page-container">
-      {/* The main content area where your forms and header will live */}
       <div className="login-content-area">
-        {/* This div will create the green strip on the right */}
         <div className="login-strip">
           <h2 className="login-title">Sign in.</h2>
           
-          {/* The white card containing the login form */}
           <div className="login-card">
-            <form>
+            <form onSubmit={handleSubmit}>
               <label htmlFor="email">E-mail</label>
               <input 
                 type="email" 
                 id="email" 
                 name="email" 
-                placeholder="you@example.com" // Example placeholder
+                placeholder="you@example.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 required 
               />
 
@@ -28,7 +56,9 @@ function Login() {
                 type="password" 
                 id="password" 
                 name="password" 
-                placeholder="••••••••" // Example placeholder
+                placeholder="••••••••"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 required 
               />
               <a href="/forgot-password" className="forgot-password-link">forgot?</a>
@@ -37,7 +67,7 @@ function Login() {
             </form>
           </div>
           
-          <a href="/create-account" className="create-account-link">Create an account</a>
+          <Link to="/register" className="create-account-link">Create an account</Link>        
         </div>
       </div>
     </div>
